@@ -29,7 +29,7 @@ function App() {
       {expenses.map((expense) => {
         return (
           <ExpenseItem
-            date={expense.date.toISOString()}
+            date={expense.date}
             title={expense.title}
             amount={expense.amount}
             key={expense.id}
