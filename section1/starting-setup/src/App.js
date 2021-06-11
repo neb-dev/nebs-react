@@ -33,7 +33,7 @@ function App() {
             title={expense.title}
             amount={expense.amount}
             key={expense.id}
-          ></ExpenseItem>
+          />
         );
       })}
     </div>
