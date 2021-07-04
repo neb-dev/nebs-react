@@ -38,6 +38,6 @@ const App = () => {
       <Expenses expenses={expenses} />
     </div>
   );
-}
+};
 
 export default App;
