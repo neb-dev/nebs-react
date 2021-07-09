@@ -1,7 +1,8 @@
-import Card from './Card';
-import ExpenseItem from './ExpenseItem';
-import './Expenses.css';
-function Expenses(props) {
+import Card from "../UI/Card";
+import ExpenseItem from "../Expenses/ExpenseItem";
+import "../Expenses/Expenses.css";
+
+const Expenses = (props) => {
   return (
     <Card className="expenses">
       {props.expenses.map((expense) => {
@@ -16,6 +17,6 @@ function Expenses(props) {
       })}
     </Card>
   );
-}
+};
 
 export default Expenses;
