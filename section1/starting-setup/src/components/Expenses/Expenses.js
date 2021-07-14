@@ -7,12 +7,14 @@ const Expenses = (props) => {
     <Card className="expenses">
       {props.expenses.map((expense) => {
         return (
-          <ExpenseItem
-            date={expense.date}
-            title={expense.title}
-            amount={expense.amount}
-            key={expense.id}
-          />
+          <div className="container">
+            <ExpenseItem
+              date={expense.date}
+              title={expense.title}
+              amount={expense.amount}
+              key={expense.id}
+            />
+          </div>
         );
       })}
     </Card>
@@ -20,3 +22,26 @@ const Expenses = (props) => {
 };
 
 export default Expenses;
+
+/* 
+<ExpenseItem
+  title={props.expenses.title}
+  amount={props.expenses.amount}
+  date={props.expenses.date}
+/>
+<ExpenseItem
+  title={props.expenses.title}
+  amount={props.expenses.amount}
+  date={props.expenses.date}
+/>
+<ExpenseItem
+  title={props.expenses.title}
+  amount={props.expenses.amount}
+  date={props.expenses.date}
+/>
+<ExpenseItem
+  title={props.expenses.title}
+  amount={props.expenses.amount}
+  date={props.expenses.date}
+/>
+*/
