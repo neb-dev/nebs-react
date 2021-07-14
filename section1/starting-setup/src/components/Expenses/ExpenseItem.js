@@ -5,11 +5,14 @@ import ExpenseDate from "../Expenses/ExpenseDate";
 import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
+  console.log("ExpenseItem instance created.");
+
   const [title, setTitle] = useState(props.title);
 
   const clickHandler = () => {
     setTitle("Updated");
     console.log(title);
+    console.log("ExpenseItem instance evaluated.")
   };
   return (
     <Card className="expense-item">
