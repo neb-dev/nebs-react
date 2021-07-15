@@ -3,38 +3,59 @@ import { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  // const [inputTitle, setInputTitle] = useState("");
-  // const [inputAmount, setInputAmount] = useState("");
-  // const [inputDate, setInputDate] = useState("");
+  const [inputTitle, setInputTitle] = useState("");
+  const [inputAmount, setInputAmount] = useState("");
+  const [inputDate, setInputDate] = useState("");
 
-  const [formInput, setFormInput] = useState({
-    inputTitle: "",
-    inputAmount: "",
-    inputDate: ""
-  });
+  // const [formInput, setFormInput] = useState({
+  //   inputTitle: "",
+  //   inputAmount: "",
+  //   inputDate: ""
+  // });
 
   const titleChangeHandler = (event) => {
-    // setInputTitle(event.target.value);
-    setFormInput({
-      ...formInput,
-      inputTitle: event.target.value
-    });
+    setInputTitle(event.target.value);
+    // may use outdated state snapshot
+    // setFormInput({
+    //   ...formInput,
+    //   inputTitle: event.target.value
+    // });
+
+    // uses updated state snapshot
+    // setFormInput((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     inputTitle: event.target.value
+    //   };
+    // });
   };
 
   const amountChangeHandler = (event) => {
-    //setInputAmount(event.target.value);
-    setFormInput({
-      ...formInput,
-      inputAmount: event.target.value
-    })
+    setInputAmount(event.target.value);
+    // setFormInput({
+    //   ...formInput,
+    //   inputAmount: event.target.value
+    // });
+    // setFormInput((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     inputAmount: event.target.value
+    //   };
+    // });
   };
 
   const dateChangeHandler = (event) => {
-    // setInputDate(event.target.value);
-    setFormInput({
-      ...formInput,
-      inputDate: event.target.value
-    })
+    setInputDate(event.target.value);
+    // setFormInput({
+    //   ...formInput,
+    //   inputDate: event.target.value
+    // });
+    // setFormInput((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     inputDate: event.target.value
+    //   };
+    // });
   };
 
   return (
