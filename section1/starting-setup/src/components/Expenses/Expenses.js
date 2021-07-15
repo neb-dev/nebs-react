@@ -6,32 +6,29 @@ import ExpensesFilter from "../ExpensesFilter/ExpensesFilter";
 import "../Expenses/Expenses.css";
 
 const Expenses = (props) => {
-  const [inputFilter, setInputFilter] = useState("");
+  const [inputFilter, setInputFilter] = useState("2020");
 
   const saveFilterHandler = (inputFilter) => {
     setInputFilter(inputFilter);
     console.log(inputFilter);
-  }
+  };
 
   return (
-    <div>
-      <ExpensesFilter onSaveFilter={saveFilterHandler} />
-
-      <Card className="expenses">
-        {props.expenses.map((expense) => {
-          return (
-            <div className="container">
-              <ExpenseItem
-                date={expense.date}
-                title={expense.title}
-                amount={expense.amount}
-                key={expense.id}
-              />
-            </div>
-          );
-        })}
-      </Card>
-    </div>
+    <Card className="expenses">
+      <ExpensesFilter defaultFilter={inputFilter} onSaveFilter={saveFilterHandler} />
+      {props.expenses.map((expense) => {
+        return (
+          <div className="container">
+            <ExpenseItem
+              date={expense.date}
+              title={expense.title}
+              amount={expense.amount}
+              key={expense.id}
+            />
+          </div>
+        );
+      })}
+    </Card>
   );
 };
 
