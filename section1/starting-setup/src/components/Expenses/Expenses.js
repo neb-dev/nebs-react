@@ -18,12 +18,11 @@ const Expenses = (props) => {
       <ExpensesFilter defaultFilter={inputFilter} onSaveFilter={saveFilterHandler} />
       {props.expenses.map((expense) => {
         return (
-          <div className="container">
+          <div className="container" key={expense.id}>
             <ExpenseItem
               date={expense.date}
               title={expense.title}
               amount={expense.amount}
-              key={expense.id}
             />
           </div>
         );
