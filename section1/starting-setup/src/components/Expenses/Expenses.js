@@ -13,10 +13,14 @@ const Expenses = (props) => {
     console.log(inputFilter);
   };
 
+  const filteredExpenses = props.expenses.filter(expense => {
+    return expense.date.getFullYear().toString() === inputFilter;
+  });
+
   return (
     <Card className="expenses">
       <ExpensesFilter defaultFilter={inputFilter} onSaveFilter={saveFilterHandler} />
-      {props.expenses.map((expense) => {
+      {filteredExpenses.map((expense) => {
         return (
           <div className="container" key={expense.id}>
             <ExpenseItem
