@@ -7,55 +7,16 @@ const ExpenseForm = (props) => {
   const [inputAmount, setInputAmount] = useState("");
   const [inputDate, setInputDate] = useState("");
 
-  // const [formInput, setFormInput] = useState({
-  //   inputTitle: "",
-  //   inputAmount: "",
-  //   inputDate: ""
-  // });
-
   const titleChangeHandler = (event) => {
     setInputTitle(event.target.value);
-    // may use outdated state snapshot
-    // setFormInput({
-    //   ...formInput,
-    //   inputTitle: event.target.value
-    // });
-
-    // uses updated state snapshot
-    // setFormInput((prevState) => {
-    //   return {
-    //     ...prevState,
-    //     inputTitle: event.target.value
-    //   };
-    // });
   };
 
   const amountChangeHandler = (event) => {
     setInputAmount(event.target.value);
-    // setFormInput({
-    //   ...formInput,
-    //   inputAmount: event.target.value
-    // });
-    // setFormInput((prevState) => {
-    //   return {
-    //     ...prevState,
-    //     inputAmount: event.target.value
-    //   };
-    // });
   };
 
   const dateChangeHandler = (event) => {
     setInputDate(event.target.value);
-    // setFormInput({
-    //   ...formInput,
-    //   inputDate: event.target.value
-    // });
-    // setFormInput((prevState) => {
-    //   return {
-    //     ...prevState,
-    //     inputDate: event.target.value
-    //   };
-    // });
   };
 
   const submitHandler = (event) => {
@@ -68,11 +29,12 @@ const ExpenseForm = (props) => {
     }
 
     props.onSaveExpenseData(expenseData);
-
     setInputTitle('');
     setInputAmount('');
     setInputDate('');
   }
+
+
 
   return (
     <form onSubmit={submitHandler}>
@@ -103,6 +65,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
