@@ -13,24 +13,45 @@ const Expenses = (props) => {
     console.log(inputFilter);
   };
 
-  const filteredExpenses = props.expenses.filter(expense => {
+  const filteredExpenses = props.expenses.filter((expense) => {
     return expense.date.getFullYear().toString() === inputFilter;
   });
 
+  let expensesContent = <p>No data</p>;
+
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => {
+      return (
+        <div className="container" key={expense.id}>
+          <ExpenseItem
+            date={expense.date}
+            title={expense.title}
+            amount={expense.amount}
+          />
+        </div>
+      );
+    });
+  }
+
   return (
     <Card className="expenses">
-      <ExpensesFilter defaultFilter={inputFilter} onSaveFilter={saveFilterHandler} />
-      {filteredExpenses.map((expense) => {
-        return (
-          <div className="container" key={expense.id}>
-            <ExpenseItem
-              date={expense.date}
-              title={expense.title}
-              amount={expense.amount}
-            />
-          </div>
-        );
-      })}
+      <ExpensesFilter
+        defaultFilter={inputFilter}
+        onSaveFilter={saveFilterHandler}
+      />
+      {expensesContent}
+      {/* {filteredExpenses.length === 0 && <p>No data</p>}
+      {filteredExpenses.length > 0 && filteredExpenses.map((expense) => {
+          return (
+            <div className="container" key={expense.id}>
+              <ExpenseItem
+                date={expense.date}
+                title={expense.title}
+                amount={expense.amount}
+              />
+            </div>
+          );
+        })} */}
     </Card>
   );
 };
